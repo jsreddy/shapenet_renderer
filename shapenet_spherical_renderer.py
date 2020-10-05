@@ -19,10 +19,10 @@ argv = sys.argv[sys.argv.index("--") + 1:]
 
 opt = p.parse_args(argv)
 
-instance_name = opt.mesh_fpath.split('/')[-3]
+instance_name = opt.mesh_fpath.split('/')[-1]
 instance_dir = os.path.join(opt.output_dir, instance_name)
 
-renderer = blender_interface.BlenderInterface(resolution=128)
+renderer = blender_interface.BlenderInterface(resolution=128, background_color=(0,0,0))
 
 if opt.mode == 'train':
     cam_locations = util.sample_spherical(opt.num_observations, opt.sphere_radius)
