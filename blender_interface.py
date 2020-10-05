@@ -63,7 +63,7 @@ class BlenderInterface():
             bpy.ops.import_mesh.ply(filepath=str(fpath))
 
         obj = bpy.context.selected_objects[0]
-        util.dump(bpy.context.selected_objects)
+        util.dump(bpy.context.selected_objects) # print the object attributes
 
         if object_world_matrix is not None:
             obj.matrix_world = object_world_matrix

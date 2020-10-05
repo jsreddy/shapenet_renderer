@@ -22,7 +22,7 @@ def look_at(cam_location, point):
     right = normalize(right)
 
     up = np.cross(forward, right)
-    up = normalize(up)
+    up = normalize(up)  # same as tmp?
 
     mat = np.stack((right, up, forward, cam_location), axis=-1)
 
@@ -64,7 +64,7 @@ def set_camera_focal_length_in_world_units(camera_data, focal_length):
     camera_data.lens = focal_length / s_u
 
 
-# Blender: camera looks in negative z-direction, y points up, x points right.
+# Blender: camera looks in negative z-direction (0,0,-1), y points up, x points right. (1,0,0) #Y should be pointing down, right?
 # Opencv: camera looks in positive z-direction, y points down, x points right.
 def cv_cam2world_to_bcam2world(cv_cam2world):
     '''
